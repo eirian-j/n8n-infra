@@ -7,7 +7,7 @@ provider "oci" {
 }
 
 provider "vault" {
-  address = var.vault_addr
-  token   = var.vault_token
+  address = "https://${oci_core_instance.vault.public_ip}:8200"
+  token   = data.vault_generic_secret.root_token.data["token"]
 }
 
