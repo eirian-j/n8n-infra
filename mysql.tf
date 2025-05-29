@@ -14,7 +14,3 @@ resource "oci_mysql_db_system" "n8n_db" {
   # free-tier always free flag:
   is_free_tier = true
 }
-
-data "oci_identity_availability_domains" "ads" {
-  compartment_id = var.oci_tenancy_ocid
-}

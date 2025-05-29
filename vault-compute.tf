@@ -1,6 +1,4 @@
-data "oci_identity_availability_domains" "ads" {
-  compartment_id = var.oci_tenancy_ocid
-}
+
 
 resource "oci_core_instance" "vault" {
   compartment_id      = var.oci_tenancy_ocid

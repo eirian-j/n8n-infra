@@ -1,16 +1,4 @@
 // n8n_compute.tf
-
-data "oci_identity_availability_domains" "ads" {
-  compartment_id = var.oci_compartment_ocid
-}
-
-data "oci_core_images" "ubuntu" {
-  compartment_id            = var.oci_compartment_ocid
-  operating_system          = "Canonical Ubuntu"
-  operating_system_version  = "22.04"
-  shape                     = "VM.Standard.A1.Flex"
-}
-
 resource "oci_core_instance" "n8n" {
   compartment_id       = var.oci_compartment_ocid
   availability_domain  = data.oci_identity_availability_domains.ads.availability_domains[0].name
